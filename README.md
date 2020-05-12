@@ -46,40 +46,17 @@ Once you have done this, you are ready to run the installer. Type again into con
 
 5. Follow the onscreen promts to get your broadcoast up! To turn off your broadcast at any point, perform an interupt by pressing CTRL and C simultaneously while in terminal
 
-##Building a dipole##
+## Building a dipole
 **DISCLAIMER: NEVER BUILD AND OPERATE ANY FORM OF ANTENNAE UNLESS YOUR ARE AUTHORIZED TO DO SO**
 
+Extras
+=======
 ## Unique files
 **radio_setup.sh** - Accomplishes 4 tasks: installs libsndfile1-dev, adds 'gpu_freq=250' to /boot/config.txt, executes make clean on the src directory, executes make on the src directory
 
 **PiFmUI.sh** - Echoes & reads the vast majority of commands and options applicable to the PiFmAdv software. It covers most bases, however you must make sure you give a valid response for all inputs, as there is no input validation.
 
 **PiFmGUI.py** - The only Python script, it makes use of the tkinter library to create a GUI. Currently, it is very simplistic, only having a text box in which to input frequency, and a button that activates a file browser. It too has no input validation, but is more defensively programmed than its UI counterpart.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## Warning and Disclaimer
 
