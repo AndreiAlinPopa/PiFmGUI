@@ -38,6 +38,7 @@ cd /home/pi/PiFmGUI/src/
 Once you have done this, you are ready to run the installer. Type again into console:
 `sudo sh radio_setup.sh`
 (Future versions of the program will place a shortcut to the PiFmGUI software onto desktop)
+
 4. After waiting a bit, you are now able to finally run your PiFmGUI software. Do this through one of the following commands to access either the UI or GUI software respectively:
 
 `sudo sh PiFmUI`
@@ -47,8 +48,6 @@ Once you have done this, you are ready to run the installer. Type again into con
 
 ##Building a dipole##
 **DISCLAIMER: NEVER BUILD AND OPERATE ANY FORM OF ANTENNAE UNLESS YOUR ARE AUTHORIZED TO DO SO**
-
-(---------------------)
 
 ## Unique files
 **radio_setup.sh** - Accomplishes 4 tasks: installs libsndfile1-dev, adds 'gpu_freq=250' to /boot/config.txt, executes make clean on the src directory, executes make on the src directory
