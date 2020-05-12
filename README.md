@@ -19,6 +19,37 @@ Link to the PiFmAdv original repository: https://github.com/miegl/PiFmAdv
 
 The PiFmGUI repository was designed for use with the any release of the Raspbian OS after August 2015. Furthermore, it has also been tested and confirmed functional with the Raspberry Pi Zero W, Pi Zero, Pi 2 and Pi 3. To ensure the optimal functioning of this repository, please ensure the instructions below are followed using a fresh install of Raspbian OS (installed through NOOBS is fine) on one of the compatible Raspberry Pis.
 
+Insutructions
+========
+**Equipment:**
+- Raspberry Pi (Models Zero, Zero W, 2, and 3 are all acceptable) and appropriate charger
+- SD Card (4gb minimum with NOOBS or Raspbian installed / ready to install. It is recommended the SD card is class 10)
+- Associated peripherals for the Raspberry Pi desktop environment (i.e. HDMI, MicroHDMI, ethernet, monitor. Whatever is needed to use your raspberry Pi as a desktop computer.)
+- ( Dipole equipment goes here )
+
+**Optional Equipment:**
+- Soldering iron + solder (Only if you are using a Pi Zero / W with no header pins, and you do not want to solder them on). This is more permanent.
+- Portable power bank / battery (To power the Pi Radio while you are on the go)
+
+## Initializing the Raspberry PI
+1. Install Raspbian or NOOBS onto an SD card. A detailed guide is avaible here: https://www.raspberrypi.org/documentation/installation/installing-images/
+2. Connect to your Raspberry Pi through HDMI and a mouse and keyboard. Alternatively, connect through SSH (tutorial to do that is here: https://www.youtube.com/watch?v=toWBmUsWD6M). Once connected, proceed through installation until you reach the Desktop.
+3. Click on the terminal icon near the top left of your task bar. And run these commands one by one until they finish:
+`sudo apt-get install git`
+`sudo git clone https://github.com/AndreiAlinPopa/PiFmGUI.git`
+`cd /home/pi/PiFmGUI/src/`
+Once you have done this, you are ready to run the installer. Type again into console:
+`sudo sh radio_setup.sh`
+(Future versions of the program will place a shortcut to the PiFmGUI software onto desktop)
+4. After waiting a bit, you are now able to finally run your PiFmGUI software. Do this through one of the following commands to access either the UI or GUI software respectively:
+`sudo sh PiFmUI`
+`sudo python3 PiFmUI`
+5. Follow the onscreen promts to get your broadcoast up! To turn off your broadcast at any point, perform an interupt by pressing CTRL and C simultaneously while in terminal
+
+##Building a dipole
+**DISCLAIMER: NEVER BUILD AND OPERATE ANY FORM OF ANTENNAE UNLESS YOUR ARE AUTHORIZED TO DO SO**
+(---------------------)
+
 ## Warning and Disclaimer
 
 PiFmAdv is an **experimental** program, designed **only for experimentation**. It is in no way intended to become a personal *media center* or a tool to operate a *radio station*, or even broadcast sound to one's own stereo system.
