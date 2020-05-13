@@ -12,7 +12,7 @@ Link to the PiFmAdv original repository: https://github.com/miegl/PiFmAdv
 
 The PiFmGUI repository was designed for use with the any release of the Raspbian OS after August 2015. Furthermore, it has also been tested and confirmed functional with the Raspberry Pi Zero W, Pi Zero, Pi 2 and Pi 3. To ensure the optimal functioning of this repository, please ensure the instructions below are followed using a fresh install of Raspbian OS (installed through NOOBS is fine) on one of the compatible Raspberry Pis.
 
-Insutructions
+Instructions
 ========
 **Equipment:**
 - Raspberry Pi (Models Zero, Zero W, 2, and 3 are all acceptable) and appropriate charger
