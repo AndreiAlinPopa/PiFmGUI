@@ -9,10 +9,12 @@ from tkinter import filedialog
 root = Tk()
 
 #setting window size
-root.geometry("600x300")
+root.geometry("570x300")
 root.title('PiFmGUI - Graphical User Interface for PiFmAdv (Made by AndreiAlinPopa)')
+currentDir = os.path.dirname(os.path.abspath(__file__))
 
-
+iconDir = currentDir + '/doc/icon.ico'
+root.iconbitmap(str(iconDir))
 
 #tabs
 tab_parent = Notebook(root)
@@ -40,11 +42,11 @@ def browsefunc():
     global audioFile
     filename = filedialog.askopenfilename()
     audioFile = filename
-    pathlabel.config(text=filename)
+    pathlabel0.config(text="..."+audioFile[-33:-1]+audioFile[-1], foreground='blue')
 browsebutton = Button(tab1, text="Browse", command=browsefunc)
 browsebutton.place(x=150, y=50)
-pathlabel = Label(tab1)
-pathlabel.place(x=10, y=100)
+pathlabel0 = Label(tab1)
+pathlabel0.place(x=10, y=78)
 
 #broadcast station name
 broadcastName = Label(tab1, text="Station Name (Limit 8): ")
@@ -58,6 +60,13 @@ radioText.place(x=10, y=130)
 radioTextEntry = Entry(tab1, width=66)
 radioTextEntry.place(x=150, y=130)
 
+#card image for first tab
+cardLoc =(currentDir + "/doc/card.png")
+card = PhotoImage(file=cardLoc)
+
+panel = Label(tab1, image=card)
+panel.place(x=10, y=160)
+
 
 
 
@@ -66,13 +75,31 @@ def start_broadcast():
     """
     Returns a bash command that is piped into terminal
     """
-    frequencyInput = freqEntry.get()
-    #audioFile already declared
-    broadcastNameInput = broadcastNameEntry.get()
-    radioTextEntryInput = radioTextEntry.get()
-    print("Frequency = {0}, audio = {1}, station name = {2}, radiotext = {3}".format(frequencyInput, audioFile, broadcastNameInput, radioTextEntryInput)) #}}}}}}}}
-    print('sudo ' + os.path.dirname(os.path.abspath(__file__)) + '/pi_fm_adv ' + '--freq ' + frequencyInput + ' --audio ' + audioFile + ' --ps ' + broadcastNameInput + ' --rt ' + radioTextEntryInput)
-    os.system('sudo ' + os.path.dirname(os.path.abspath(__file__)) + '/pi_fm_adv ' + '--freq ' + frequencyInput + ' --audio ' + audioFile + ' --ps ' + broadcastNameInput + ' --rt ' + radioTextEntryInput)
+
+    try:
+        if freqEntry.get() and audioFile and broadcastNameEntry.get() and radioTextEntry.get():
+
+
+            frequencyInput = freqEntry.get()
+            #audioFile already declared
+            broadcastNameInput = broadcastNameEntry.get()
+            radioTextEntryInput = radioTextEntry.get()
+
+            print("Frequency = {0}, audio = {1}, station name = {2}, radiotext = {3}".format(frequencyInput, audioFile, broadcastNameInput, radioTextEntryInput)) #}}}}}}}}
+            print('sudo ' + os.path.dirname(os.path.abspath(__file__)) + '/src/pi_fm_adv ' + '--freq ' + frequencyInput + ' --audio ' + audioFile + ' --ps ' + broadcastNameInput + ' --rt ' + radioTextEntryInput)
+            os.system('sudo ' + os.path.dirname(os.path.abspath(__file__)) + '/src/pi_fm_adv ' + '--freq ' + frequencyInput + ' --audio ' + audioFile + ' --ps ' + broadcastNameInput + ' --rt ' + radioTextEntryInput)
+            
+        else:
+            print("Ensure you have entered a frequency, audio file, station name, and radiotext")
+            return 0
+            
+    except:
+        print("Ensure you have entered a frequency, audio file, station name, and radiotext")
+        return 0
+
+
+
+
 
 #End broadcast
 def end_broadcast():
@@ -108,11 +135,11 @@ def browsefunc():
     global audioFile
     filename = filedialog.askopenfilename()
     audioFile = filename
-    pathlabel.config(text=filename)
+    pathlabel.config(text="..."+audioFile[-33:-1]+audioFile[-1], foreground='blue')
 browsebutton = Button(tab2, text="Browse", command=browsefunc)
 browsebutton.place(x=150, y=50)
 pathlabel = Label(tab2)
-pathlabel.place(x=10, y=100)
+pathlabel.place(x=10, y=78)
 
 #broadcast station name adv
 broadcast_name = Label(tab2, text="Station Name (Limit 8): ")
@@ -179,42 +206,29 @@ gpio_text.place(x=250, y=10)
 
 g = IntVar()
 g.get()
-Radiobutton(tab2, text="Pin 4", variable=g, value=1).place(x=250, y=30)
-Radiobutton(tab2, text="Pin 20", variable=g, value=2).place(x=325, y=30)
-Radiobutton(tab2, text="Pin 32", variable=g, value=3).place(x=400, y=30)
-Radiobutton(tab2, text="Pin 34", variable=g, value=4).place(x=475, y=30)
+Radiobutton(tab2, text="Pin 4", variable=g, value=4).place(x=250, y=30)
+Radiobutton(tab2, text="Pin 20", variable=g, value=20).place(x=325, y=30)
+Radiobutton(tab2, text="Pin 32", variable=g, value=32).place(x=400, y=30)
+Radiobutton(tab2, text="Pin 34", variable=g, value=34).place(x=475, y=30)
 
 #preemph
 preemph_text = Label(tab2, text="Preemph: ")
 preemph_text.place(x=250, y=65)
 
 
-eu = PhotoImage(file='C:\\Users\\Andrei\\Desktop\\Code\\New\\PiFmGUI\\resources\\eu.png')
-usa = PhotoImage(file='C:\\Users\\Andrei\\Desktop\\Code\\New\\PiFmGUI\\resources\\usa.png')
+euLoc = currentDir + "\\doc\\eu.png"
+usaLoc = currentDir + "\\doc\\usa.png"
+
+eu = PhotoImage(file=euLoc)
+usa = PhotoImage(file=usaLoc)
                   
-p = IntVar()
+p = StringVar()
 p.get()
-Radiobutton(tab2, image=eu, variable=p, value=1).place(x=340, y=65)
-Radiobutton(tab2, image=usa, variable=p, value=2).place(x=420, y=65)
+Radiobutton(tab2, image=eu, variable=p, value='eu').place(x=340, y=65)
+Radiobutton(tab2, image=usa, variable=p, value='us').place(x=420, y=65)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#Begin broadcast
+#start broadcast
 def start_broadcast_adv():
     """
     Returns a bash command that is piped into terminal
@@ -234,6 +248,9 @@ def start_broadcast_adv():
     preemph_input = p.get()
 
 
+
+
+
     advanced_attributes = (frequency_input, audioFile, broadcast_name_entry_input, radio_text_entry_input, freq_dev_entry_input, broadcast_mpx_entry_input, broadcast_power_entry_input, broadcast_cutoff_entry_input, broadcast_rds_entry_input, broadcast_ppm_entry_input, gpio_input, preemph_input)
     advanced_attributes_prefixes = (' --freq ', ' --audio ', ' --ps ', ' --rt ', ' --dev ', ' --mpx ', ' --power ', ' --cutoff ', ' --rds ', ' --ppm ', ' --gpio ', ' --preemph ')
     terminalParameters = ''
@@ -249,12 +266,12 @@ def start_broadcast_adv():
             print(terminalParameters)
             counter += 1
 
-    #radio buttons behaving strangely, so if functions are warranted
+    #output
 
-
-    
+    os.system('sudo ' + currentDir + '/src/pi_fm_adv ' + terminalParameters)
     print("Frequency = {0}, audio = {1}, station name = {2}, radiotext = {3}, frequency deviation = {4}, mpx = {5}, power = {6}, cutoff = {7}, rds = {8}, ppm = {9}, gpio = {10}, preemph = {11}".format(frequency_input, audioFile, broadcast_name_entry_input, radio_text_entry_input, freq_dev_entry_input, broadcast_mpx_entry_input, broadcast_power_entry_input, broadcast_cutoff_entry_input, broadcast_rds_entry_input, broadcast_ppm_entry_input, gpio_input, preemph_input)) #}}}}}}}}
-    #print('sudo ' + os.path.dirname(os.path.abspath(__file__)) + '/pi_fm_adv ' + '--freq ' + frequencyInput + ' --audio ' + audioFile + ' --ps ' + broadcastNameInput + ' --rt ' + radioTextEntryInput)
+
+
 
 #End broadcast
 def end_broadcast():
@@ -270,23 +287,6 @@ startBroadcast.place(x=300, y=220)
 
 stopBroadcast = Button(tab2, height=2, width=14, text="End Broadcast", command=end_broadcast)
 stopBroadcast.place(x=440, y=220)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
