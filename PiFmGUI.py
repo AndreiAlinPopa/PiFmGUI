@@ -4,6 +4,7 @@ from tkinter import *
 from tkinter.ttk import Notebook
 from tkinter.ttk import Combobox #
 from tkinter import filedialog
+from tkinter import messagebox
 
 
 root = Tk()
@@ -20,9 +21,11 @@ root.iconbitmap(str(iconDir))
 tab_parent = Notebook(root)
 tab1 = Frame(tab_parent)
 tab2 = Frame(tab_parent)
+tab3 = Frame(tab_parent)
 
 tab_parent.add(tab1, text="Simple")
 tab_parent.add(tab2, text="Advanced")
+tab_parent.add(tab3, text="Dipole Calculator")
 tab_parent.pack(expand=1, fill='both')
 
 #~~~~~~~~~~~~~~~~~~~~~~tab1 content~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -90,11 +93,11 @@ def start_broadcast():
             os.system('sudo ' + os.path.dirname(os.path.abspath(__file__)) + '/src/pi_fm_adv ' + '--freq ' + frequencyInput + ' --audio ' + audioFile + ' --ps ' + broadcastNameInput + ' --rt ' + radioTextEntryInput)
             
         else:
-            print("Ensure you have entered a frequency, audio file, station name, and radiotext")
+            messagebox.showerror("Missing values", "Ensure you have entered a frequency, audio file, station name, and radiotext")
             return 0
             
     except:
-        print("Ensure you have entered a frequency, audio file, station name, and radiotext")
+        messagebox.showerror("Missing values", "Ensure you have entered a frequency, audio file, station name, and radiotext")
         return 0
 
 
@@ -249,6 +252,17 @@ def start_broadcast_adv():
 
 
 
+    try:
+        if frequency_input and audioFile:
+            pass
+        else:
+            messagebox.showerror("Missing values (Adv)", "Ensure you have entered a frequency and audio file")
+            return 0
+    except:
+        messagebox.showerror("Missing values (Adv)", "Ensure you have entered a frequency and audio file")
+        return 0
+
+    
 
 
     advanced_attributes = (frequency_input, audioFile, broadcast_name_entry_input, radio_text_entry_input, freq_dev_entry_input, broadcast_mpx_entry_input, broadcast_power_entry_input, broadcast_cutoff_entry_input, broadcast_rds_entry_input, broadcast_ppm_entry_input, gpio_input, preemph_input)
@@ -289,17 +303,75 @@ stopBroadcast = Button(tab2, height=2, width=14, text="End Broadcast", command=e
 stopBroadcast.place(x=440, y=220)
 
 
+#~~~~~~~~~~~~~~~~~~~~~~tab3 content~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+#outcome frame
+outcomeFrame = LabelFrame(tab3, text="Results", height=167, width=350)
+outcomeFrame.place(x=200, y=80)
+
+#dipole image for third tab
+dipoleLoc =(currentDir + "/doc/dipole.png")
+dipole = PhotoImage(file=dipoleLoc)
+
+dipoleimage = Label(tab3, image=dipole)
+dipoleimage.place(x=20, y=20)
+
+#dipolefrequency text
+dipolefreqLabel = Label(tab3, text="Frequency (FM): ")
+dipolefreqLabel.place(x=200, y=20)
+freqqqEntry = Entry(tab3, width=10)
+freqqqEntry.place(x=210, y=50)
+
+#dipole result labels
+dipole0 = 0.0
+dipole1 = 0.0
+
+dipoleResult = Label(tab3, text=dipole0)
+dipoleResulthalf = Label(tab3, text=dipole1)
 
 
+
+
+
+
+
+#calculate function
+def calculateValue():
+    try:
+        freqqq = float(freqqqEntry.get())
+    except:
+        messagebox.showerror("No frequency entered", "Please enter a frequency")
+        return 0
+        
+    if freqqq < 87.5:
+        messagebox.showerror("Invalid Frequency", "Frequency too low")
+    elif freqqq > 108.5:
+        messagebox.showerror("Invalid Frequency", "Frequency too high")
+    else:
+        print("ok")
+        dipole0 = 468/freqqq
+        dipole1 = dipole0/2
+        
+        dipoleResult = Label(tab3, fg='blue', text=dipole0)
+        dipoleResulthalf = Label(tab3, fg='blue', text=dipole1)
+        
+        dipoleResult.place(x=220, y=150)
+        dipoleResulthalf.place(x=220, y=210)
+        return (468/freqqq)
+
+#calculate button
+calculate = Button(tab3, height=2, width=34, text="Calculate", command=calculateValue)
+calculate.place(x=300, y=25)
+
+#totallength text
+totalLength = Label(tab3, text="Total Length of Dipole (Feet): ")
+totalLength.place(x=220, y=125)
+
+#eachlength text
+eachLength = Label(tab3, text="Length of Each Dipole (Feet): ")
+eachLength.place(x=220, y=185)
 
 root.mainloop()
-
-
-
-
-
-
-
 
 
 
