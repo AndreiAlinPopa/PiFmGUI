@@ -36,7 +36,6 @@ freqLabel.place(x=10, y=20)
 freqEntry = Entry(tab1, width=8)
 freqEntry.place(x=150, y=20)
 
-
 #Audio text
 audioLabel = Label(tab1, text="Audio (16-bit wav):")
 audioLabel.place(x=10, y=55)
@@ -71,8 +70,6 @@ panel = Label(tab1, image=card)
 panel.place(x=10, y=160)
 
 
-
-
 #Begin broadcast
 def start_broadcast():
     """
@@ -99,10 +96,6 @@ def start_broadcast():
     except:
         messagebox.showerror("Missing values", "Ensure you have entered a frequency, audio file, station name, and radiotext")
         return 0
-
-
-
-
 
 #End broadcast
 def end_broadcast():
@@ -219,8 +212,8 @@ preemph_text = Label(tab2, text="Preemph: ")
 preemph_text.place(x=250, y=65)
 
 
-euLoc = currentDir + "\\doc\\eu.png"
-usaLoc = currentDir + "\\doc\\usa.png"
+euLoc = currentDir + "/doc/eu.png"
+usaLoc = currentDir + "/doc/usa.png"
 
 eu = PhotoImage(file=euLoc)
 usa = PhotoImage(file=usaLoc)
@@ -250,8 +243,6 @@ def start_broadcast_adv():
     gpio_input = g.get()
     preemph_input = p.get()
 
-
-
     try:
         if frequency_input and audioFile:
             pass
@@ -261,9 +252,6 @@ def start_broadcast_adv():
     except:
         messagebox.showerror("Missing values (Adv)", "Ensure you have entered a frequency and audio file")
         return 0
-
-    
-
 
     advanced_attributes = (frequency_input, audioFile, broadcast_name_entry_input, radio_text_entry_input, freq_dev_entry_input, broadcast_mpx_entry_input, broadcast_power_entry_input, broadcast_cutoff_entry_input, broadcast_rds_entry_input, broadcast_ppm_entry_input, gpio_input, preemph_input)
     advanced_attributes_prefixes = (' --freq ', ' --audio ', ' --ps ', ' --rt ', ' --dev ', ' --mpx ', ' --power ', ' --cutoff ', ' --rds ', ' --ppm ', ' --gpio ', ' --preemph ')
@@ -329,12 +317,6 @@ dipole1 = 0.0
 dipoleResult = Label(tab3, text=dipole0)
 dipoleResulthalf = Label(tab3, text=dipole1)
 
-
-
-
-
-
-
 #calculate function
 def calculateValue():
     try:
@@ -348,16 +330,23 @@ def calculateValue():
     elif freqqq > 108.5:
         messagebox.showerror("Invalid Frequency", "Frequency too high")
     else:
-        print("ok")
-        dipole0 = 468/freqqq
-        dipole1 = dipole0/2
+
+        #freq values without 0s
+        freqqqResultLength = len(str(468/freqqq));
+        freqqqResult = str(468/freqqq)
+        halfFreqqq = str((468/freqqq)/2)
         
-        dipoleResult = Label(tab3, fg='blue', text=dipole0)
-        dipoleResulthalf = Label(tab3, fg='blue', text=dipole1)
-        
-        dipoleResult.place(x=220, y=150)
-        dipoleResulthalf.place(x=220, y=210)
-        return (468/freqqq)
+        while freqqqResultLength <= 17:
+                freqqqResult += '0'
+                halfFreqqq += '0'
+                freqqqResultLength = len(freqqqResult)
+                print(freqqqResult)
+                print(halfFreqqq)
+
+        dipoleResult = Label(tab3, fg='blue', text=freqqqResult); dipoleResult.place(x=220, y=150)
+        dipoleResulthalf = Label(tab3, fg='blue', text=halfFreqqq); dipoleResulthalf.place(x=220, y=210)
+
+        print(freqqqResult)
 
 #calculate button
 calculate = Button(tab3, height=2, width=34, text="Calculate", command=calculateValue)
@@ -372,8 +361,6 @@ eachLength = Label(tab3, text="Length of Each Dipole (Feet): ")
 eachLength.place(x=220, y=185)
 
 root.mainloop()
-
-
 
 
 
