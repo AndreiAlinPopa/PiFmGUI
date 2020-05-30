@@ -53,14 +53,14 @@ pathlabel0.place(x=10, y=78)
 #broadcast station name
 broadcastName = Label(tab1, text="Station Name (Limit 8): ")
 broadcastName.place(x=10, y=100)
-broadcastNameEntry = Entry(tab1, width=66)
-broadcastNameEntry.place(x=150, y=100)
+broadcastNameEntry = Entry(tab1, width=42)
+broadcastNameEntry.place(x=170, y=100)
 
 #broadcast radiotext
 radioText = Label(tab1, text="Radio Text (Limit 64): ")
 radioText.place(x=10, y=130)
-radioTextEntry = Entry(tab1, width=66)
-radioTextEntry.place(x=150, y=130)
+radioTextEntry = Entry(tab1, width=42)
+radioTextEntry.place(x=170, y=130)
 
 #card image for first tab
 cardLoc =(currentDir + "/doc/card.png")
@@ -106,10 +106,10 @@ def end_broadcast():
     
 
 #Begin button / end button
-startBroadcast = Button(tab1, height=3, width=20, text="Start Broadcast", command=start_broadcast)
-startBroadcast.place(x=230, y=20)
+startBroadcast = Button(tab1, height=3, width=14, text="Start Broadcast", command=start_broadcast)
+startBroadcast.place(x=240, y=20)
 
-stopBroadcast = Button(tab1, height=3, width=20, text="End Broadcast", command=end_broadcast)
+stopBroadcast = Button(tab1, height=3, width=14, text="End Broadcast", command=end_broadcast)
 stopBroadcast.place(x=400, y=20)
 
 #~~~~~~~~~~~~~~~~~~~~~~tab2 content~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -140,14 +140,14 @@ pathlabel.place(x=10, y=78)
 #broadcast station name adv
 broadcast_name = Label(tab2, text="Station Name (Limit 8): ")
 broadcast_name.place(x=10, y=100)
-broadcast_name_entry = Entry(tab2, width=66)
-broadcast_name_entry.place(x=150, y=100)
+broadcast_name_entry = Entry(tab2, width=42)
+broadcast_name_entry.place(x=170, y=100)
 
 #broadcast radiotext adv
 radio_text = Label(tab2, text="Radio Text (Limit 64): ")
 radio_text.place(x=10, y=130)
-radio_text_entry = Entry(tab2, width=66)
-radio_text_entry.place(x=150, y=130)
+radio_text_entry = Entry(tab2, width=42)
+radio_text_entry.place(x=170, y=130)
 
 #multiselect
 '''
@@ -162,39 +162,39 @@ gpio_select.place(x=150, y=180)
 #frequency deviation
 freq_dev = Label(tab2, text="Frequency deviation (kHz): ")
 freq_dev.place(x=10, y=170)
-freq_dev_entry = Entry(tab2, width=20)
-freq_dev_entry.place(x=160, y=170)
+freq_dev_entry = Entry(tab2, width=10)
+freq_dev_entry.place(x=190, y=170)
 
 
 #output mpx
 broadcast_mpx = Label(tab2, text="Output mpx power: ")
 broadcast_mpx.place(x=10, y=190)
-broadcast_mpx_entry = Entry(tab2, width=20)
-broadcast_mpx_entry.place(x=160, y=190)
+broadcast_mpx_entry = Entry(tab2, width=10)
+broadcast_mpx_entry.place(x=190, y=190)
 
 #power #need some conversion
 broadcast_power = Label(tab2, text="GPIO drv strgth (2-16mA): ")
 broadcast_power.place(x=10, y=210)
-broadcast_power_entry = Entry(tab2, width=20)
-broadcast_power_entry.place(x=160, y=210)
+broadcast_power_entry = Entry(tab2, width=10)
+broadcast_power_entry.place(x=190, y=210)
 
 #rds
-broadcast_cutoff = Label(tab2, text="Cutoff frequency (<15000): ")
+broadcast_cutoff = Label(tab2, text="Cutoff freq (<15000): ")
 broadcast_cutoff.place(x=10, y=230)
-broadcast_cutoff_entry = Entry(tab2, width=20)
-broadcast_cutoff_entry.place(x=160, y=230)
+broadcast_cutoff_entry = Entry(tab2, width=10)
+broadcast_cutoff_entry.place(x=190, y=230)
 
 #cutoff
 broadcast_rds = Label(tab2, text="RDS broadcast switch: ")
 broadcast_rds.place(x=290, y=170)
-broadcast_rds_entry = Entry(tab2, width=20)
-broadcast_rds_entry.place(x=425, y=170)
+broadcast_rds_entry = Entry(tab2, width=10)
+broadcast_rds_entry.place(x=445, y=170)
 
 #ppm
 broadcast_ppm = Label(tab2, text="Oscillator error (ppm) ")
 broadcast_ppm.place(x=290, y=190)
-broadcast_ppm_entry = Entry(tab2, width=20)
-broadcast_ppm_entry.place(x=425, y=190)
+broadcast_ppm_entry = Entry(tab2, width=10)
+broadcast_ppm_entry.place(x=445, y=190)
 
 #gpio
 gpio_text = Label(tab2, text="GPIO Pin for transmission: ")
@@ -284,11 +284,11 @@ def end_broadcast():
     
 
 #Begin button / end button
-startBroadcast = Button(tab2, height=2, width=14, text="Start Broadcast", command=start_broadcast_adv)
-startBroadcast.place(x=300, y=220)
+startBroadcast = Button(tab2, height=2, width=11, text="Start Broadcast", command=start_broadcast_adv)
+startBroadcast.place(x=290, y=220)
 
-stopBroadcast = Button(tab2, height=2, width=14, text="End Broadcast", command=end_broadcast)
-stopBroadcast.place(x=440, y=220)
+stopBroadcast = Button(tab2, height=2, width=11, text="End Broadcast", command=end_broadcast)
+stopBroadcast.place(x=425, y=220)
 
 
 #~~~~~~~~~~~~~~~~~~~~~~tab3 content~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -349,8 +349,8 @@ def calculateValue():
         print(freqqqResult)
 
 #calculate button
-calculate = Button(tab3, height=2, width=34, text="Calculate", command=calculateValue)
-calculate.place(x=300, y=25)
+calculate = Button(tab3, height=2, width=24, text="Calculate", command=calculateValue)
+calculate.place(x=310, y=25)
 
 #totallength text
 totalLength = Label(tab3, text="Total Length of Dipole (Feet): ")
