@@ -14,8 +14,9 @@ root.geometry("570x300")
 root.title('PiFmGUI - Graphical User Interface for PiFmAdv (Made by AndreiAlinPopa)')
 currentDir = os.path.dirname(os.path.abspath(__file__))
 
-iconDir = currentDir + '/doc/icon.ico'
-root.iconbitmap(str(iconDir))
+#Decided to remove below because it does not display on Raspbian
+#iconDir = currentDir + '/doc/icon.ico'
+#root.iconbitmap(str(iconDir))
 
 #tabs
 tab_parent = Notebook(root)
