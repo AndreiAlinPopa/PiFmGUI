@@ -1,8 +1,6 @@
 import os
-import signal
 from tkinter import *
 from tkinter.ttk import Notebook
-from tkinter.ttk import Combobox #
 from tkinter import filedialog
 from tkinter import messagebox
 
@@ -103,7 +101,6 @@ def end_broadcast():
     """
     Sends a system interrupt
     """
-    pass
     
 
 #Begin button / end button
@@ -281,7 +278,6 @@ def end_broadcast():
     """
     Sends a system interrupt
     """
-    pass
     
 
 #Begin button / end button
