@@ -46,11 +46,11 @@ Once you have done this, you are ready to run the installer. Type again into con
 
 5. Follow the onscreen promts to get your broadcast up! To turn off your broadcast at any point, perform an interupt by pressing CTRL and C simultaneously while in terminal. Note how there are two broadcast menus:
 
-##Simple Broadcast
+## Simple Broadcast
 
 ![dipole image](https://github.com/AndreiAlinPopa/PiFmGUI/blob/master/doc/gui1.png?raw=true)
 
-##Advanced Broadcast
+## Advanced Broadcast
 
 ![dipole image](https://github.com/AndreiAlinPopa/PiFmGUI/blob/master/doc/gui2.png?raw=true)
 
