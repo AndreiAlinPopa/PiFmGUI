@@ -44,11 +44,18 @@ Once you have done this, you are ready to run the installer. Type again into con
 `sudo sh PiFmUI`
 `sudo python3 PiFmUI`
 
-5. Follow the onscreen promts to get your broadcoast up! To turn off your broadcast at any point, perform an interupt by pressing CTRL and C simultaneously while in terminal
+5. Follow the onscreen promts to get your broadcast up! To turn off your broadcast at any point, perform an interupt by pressing CTRL and C simultaneously while in terminal. Note how there are two broadcast menus:
+
+Simple Broadcast
+![dipole image](https://github.com/AndreiAlinPopa/PiFmGUI/blob/master/doc/gui1.png?raw=true)
+
+Advanced Broadcast
+![dipole image](https://github.com/AndreiAlinPopa/PiFmGUI/blob/master/doc/gui2.png?raw=true)
 
 ## Building a dipole
 **DISCLAIMER: NEVER BUILD AND OPERATE ANY FORM OF ANTENNAE UNLESS YOUR ARE AUTHORIZED TO DO SO**
 ![dipole image](https://github.com/AndreiAlinPopa/PiFmGUI/blob/master/doc/gui3.png?raw=true)
+Use the dipole building utility to calculate the length of your dipole, then build it.
 
 
 Extras
