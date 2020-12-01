@@ -48,6 +48,7 @@ Once you have done this, you are ready to run the installer. Type again into con
 
 ## Building a dipole
 **DISCLAIMER: NEVER BUILD AND OPERATE ANY FORM OF ANTENNAE UNLESS YOUR ARE AUTHORIZED TO DO SO**
+![dipole image](https://github.com/AndreiAlinPopa/PiFmGUI/blob/doc/gui3.png?raw=true)
 
 Extras
 =======
