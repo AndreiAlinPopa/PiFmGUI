@@ -2,7 +2,7 @@ PiFmGUI
 ========
 
 ## What is it?
-The first section goes over some of the motivations for PiFmGUI. If you are looking for the direct tutorial, skip ahead to _____
+The first section goes over some of the motivations for PiFmGUI. If you are looking for the direct tutorial, skip ahead to **INSTRUCTIONS**
 
 PiFmGUI is an addon pack of scripts designed around the PiFmAdv repository written by Miegl. It features a grand total of 2 Bash files and 1 Python file alongside the original broadcast software. The purpose of PiFmGUI is to allow anybody from a radio novice to a radio enthusiast find a more affordable alternative to a typical HAM or CB radio they'd usually be forced to buy. This is all done to a more user-friendly graphical interface on how to begin broadcasting for someone completely unfamiliar with the Linux Operating environment - after all not everyone's got enough spare time on their hands for 'ol Tux!
 
@@ -24,7 +24,7 @@ Instructions
 - Soldering iron + solder (Only if you are using a Pi Zero / W with no header pins, and you do not want to solder them on). This is more permanent.
 - Portable power bank / battery (To power the Pi Radio while you are on the go)
 
-## Initializing the Raspberry PI
+## Getting PiFmGUI up and running
 1. Install Raspbian or NOOBS onto an SD card. A detailed guide is avaible here: https://www.raspberrypi.org/documentation/installation/installing-images/
 
 2. Connect to your Raspberry Pi through HDMI and a mouse and keyboard. Alternatively, connect through SSH (tutorial to do that is here: https://www.youtube.com/watch?v=toWBmUsWD6M). Once connected, proceed through installation until you reach the Desktop.
